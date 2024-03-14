@@ -1,0 +1,3 @@
+name: EnderButt
+version: '${project.version}'
+main: me.lisariesey.enderbutt.EnderButt
