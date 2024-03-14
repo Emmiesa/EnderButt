@@ -1,0 +1,15 @@
+console-startup-message: |-
+  &7EnderButt has been enabled successfully!
+  &dAuthor: &7Emmiesa
+  &dVersion: &71.0-SNAPPYSHOT
+
+console-shutdown-message: "&e[&dEnderButt&e] &7Plugin has been disabled!"
+
+enderbutt:
+  enabled: true
+  type: "RIDE" #RIDE, FOLLOW
+  sound_enabled: true
+  sound: ENDERMAN_TELEPORT
+  effect-ride:
+    enable: true
+    effect: HAPPY_VILLAGER
