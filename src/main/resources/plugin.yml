@@ -1,3 +1,5 @@
 name: EnderButt
 version: '${project.version}'
 main: me.lisariesey.enderbutt.EnderButt
+author: EmLi
+description: EnderButt plugin <3
