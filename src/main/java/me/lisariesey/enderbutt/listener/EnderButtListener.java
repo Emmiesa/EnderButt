@@ -24,18 +24,18 @@ public class EnderButtListener implements Listener {
     public void onPlayerInteract(PlayerInteractEvent event) {
         Action action = event.getAction();
 
-        if (EnderButt.instance.getConfig().getBoolean("enderbutt.enabled", true)) {
+        if (EnderButt.getInstance().getConfig().getBoolean("enderbutt.enabled", true)) {
             if (action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK) {
                 Player player = event.getPlayer();
                 if (event.getItem() != null && event.getItem().getType() == Material.ENDER_PEARL) {
-                    if (EnderButt.instance.getConfig().getString("enderbutt.type").equals("FOLLOW")) {
+                    if (EnderButt.getInstance().getConfig().getString("enderbutt.type").equals("FOLLOW")) {
                         event.setUseItemInHand(Event.Result.DENY);
                         event.setUseInteractedBlock(Event.Result.DENY);
                         player.setVelocity(player.getLocation().getDirection().normalize().multiply(1.5F));
                         player.getLocation().getWorld().playEffect(player.getLocation(), Effect.HAPPY_VILLAGER, 20);
 
-                        if (EnderButt.instance.getConfig().getBoolean("enderbutt.sound_enabled")) {
-                            String sound = EnderButt.instance.getConfig().getString("enderbutt.sound");
+                        if (EnderButt.getInstance().getConfig().getBoolean("enderbutt.sound_enabled")) {
+                            String sound = EnderButt.getInstance().getConfig().getString("enderbutt.sound");
                             player.playSound(player.getLocation(), Sound.valueOf(sound), 1.0F, 1.0F);
                         }
 
@@ -43,7 +43,7 @@ public class EnderButtListener implements Listener {
                             player.updateInventory();
                         }
 
-                    } else if (EnderButt.instance.getConfig().getString("enderbutt.type").equals("RIDE")) {
+                    } else if (EnderButt.getInstance().getConfig().getString("enderbutt.type").equals("RIDE")) {
                         event.setCancelled(true);
                         if (player.isInsideVehicle()) {
                             player.getVehicle().remove();
@@ -55,15 +55,15 @@ public class EnderButtListener implements Listener {
                         pearl.setVelocity(player.getLocation().getDirection().normalize().multiply(1.5F));
                         player.spigot().setCollidesWithEntities(false);
 
-                        if (EnderButt.instance.getConfig().getBoolean("enderbutt.sound_enabled")) {
-                            String sound = EnderButt.instance.getConfig().getString("enderbutt.sound");
+                        if (EnderButt.getInstance().getConfig().getBoolean("enderbutt.sound_enabled")) {
+                            String sound = EnderButt.getInstance().getConfig().getString("enderbutt.sound");
                             player.playSound(player.getLocation(), Sound.valueOf(sound), 1.0F, 1.0F);
                         }
 
                         if (player.getGameMode() == GameMode.SURVIVAL || player.getGameMode() == GameMode.CREATIVE) {
                             player.updateInventory();
                         }
-                        if (EnderButt.instance.getConfig().getBoolean("enderbutt.effect-ride.enable")) {
+                        if (EnderButt.getInstance().getConfig().getBoolean("enderbutt.effect-ride.enable")) {
                             String effectValue = EnderButt.getInstance().getConfig().getString("enderbutt.effect-ride.effect");
                             followEffectTask = (new BukkitRunnable() {
                                 public void run() {
