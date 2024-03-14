@@ -12,4 +12,4 @@ enderbutt:
   sound: ENDERMAN_TELEPORT
   effect-ride:
     enable: true
-    effect: HAPPY_VILLAGER
+    effect: HEART #HAPPY_VILLAGER
